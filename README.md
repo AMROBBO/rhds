@@ -26,3 +26,6 @@ Run scripts in following order:
 5_analysis.r  
 
 using Rscript <script_name>.r ${datadir} ${resultsdir}
+
+
+I have also rendered this as a quarto document, doesnt seem to work when rendering it to docs tho...
