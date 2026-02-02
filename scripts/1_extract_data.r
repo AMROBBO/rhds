@@ -2,7 +2,7 @@
 ## extract-data.r
 ## -------------------------------------------- ##
 
-## Just putting in some more information here to practice branching
+library(rhds.rpackage)
 
 args <- commandArgs(trailingOnly = TRUE)
 
@@ -10,25 +10,25 @@ datadir <- args[1]
 resultsdir <- args[2]
 
 ## function for extracting tcga tar.gz's to named output
-extract.file <- function(tar.file, extract.file, new.file, resultsdir) {
+#extract.file <- function(tar.file, extract.file, new.file, resultsdir) {
   # get file path to extracted file
-  x.file <-
-    grep(extract.file,
-      untar(tar.file, list = T),
-      value = T
-    )
+ # x.file <-
+ #   grep(extract.file,
+  #    untar(tar.file, list = T),
+   #   value = T
+    #)
     
   # extract the tar file
-  cat("Extracting", tar.file, "to", new.file, "\n")
-  untar(tar.file, exdir=resultsdir, extras="--no-same-owner")
-  x.file = file.path(resultsdir,x.file)
+  #cat("Extracting", tar.file, "to", new.file, "\n")
+  #untar(tar.file, exdir=resultsdir, extras="--no-same-owner")
+  #x.file = file.path(resultsdir,x.file)
 
   # move the data to named output
-  file.copy(x.file, new.file)
+  #file.copy(x.file, new.file)
 
   # remove untared directory
-  unlink(dirname(x.file), recursive = TRUE)
-}
+  #unlink(dirname(x.file), recursive = TRUE)
+#}
 
 #######################
 ## extract the clinical data
