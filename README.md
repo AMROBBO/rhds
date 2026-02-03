@@ -53,3 +53,12 @@ The --fakeroot argument tells apptainer to run as root within the container.
 If this command was successful, you should see an updated report analysis.html in ${docsdir}. Check the modification date/time like this:
 
 ls -l ${docsdir}/analysis.html
+
+Snakemake pipeline:
+
+source scripts/config.env
+mkdir -p ${docsdir} ${resultsdir} ${datadir}
+snakemake \
+    --cores 1 \
+    --use-apptainer \
+    --apptainer-args "--fakeroot -B ${datadir} -B ${resultsdir} -B ${docsdir} -B $(pwd)"
